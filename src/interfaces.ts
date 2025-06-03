@@ -10,17 +10,9 @@
  *  The use and distribution of this software is under the restrictions exposed in 'license.txt'
  */
 
-import { Container } from "@mui/material";
-import { Outlet } from "react-router-dom";
-import { Header } from "./Header";
-
-export const Home = () => {
-  return (
-    <>
-      <Header />
-      <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
-        <Outlet />
-      </Container>
-    </>
-  );
-};
+export interface IProduct {
+  id?: number;
+  name: string;
+  description: string;
+  image?: string;
+}
