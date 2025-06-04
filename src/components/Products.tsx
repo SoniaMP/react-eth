@@ -12,6 +12,7 @@
 
 import {
   Box,
+  Button,
   Paper,
   Stack,
   Table,
@@ -39,14 +40,17 @@ export const Products = () => {
     );
   }
 
-  console.log("Products:", products);
-
   return (
     <Stack spacing={2}>
       <Stack spacing={1} direction="row" justifyContent={"flex-end"}>
-        <Link to="/products/new" style={{ textDecoration: "none" }}>
-          Add product
-        </Link>
+        <Button
+          component={Link}
+          to="/products/new"
+          style={{ textDecoration: "none", textTransform: "none" }}
+          variant="contained"
+        >
+          <Typography>Add product</Typography>
+        </Button>
       </Stack>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

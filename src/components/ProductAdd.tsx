@@ -29,7 +29,7 @@ export const ProductAdd = () => {
   const mutation = useMutation(addProduct, {
     onSuccess: () => {
       queryClient.invalidateQueries(["products"]);
-      navigate("/products");
+      navigate("/");
     },
   });
 

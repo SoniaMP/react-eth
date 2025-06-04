@@ -10,19 +10,21 @@
  *  The use and distribution of this software is under the restrictions exposed in 'license.txt'
  */
 
-import { Container } from "@mui/material";
-import { Outlet } from "react-router-dom";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { Box } from "@mui/material";
 
-export const Home = () => {
+export const Footer = () => {
   return (
-    <>
-      <Header />
-      <Container maxWidth="xl" sx={{ my: 2 }}>
-        <Outlet />
-      </Container>
-      <Footer />
-    </>
+    <Box
+      textAlign="center"
+      padding={1}
+      position="fixed"
+      width="100%"
+      sx={{
+        backgroundColor: "#FAF8FD",
+        bottom: 0,
+      }}
+    >
+      <p>© 2025 Sonia Molina - Code Crypto formation. All rights reserved</p>
+    </Box>
   );
 };

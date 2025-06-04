@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import CssBaseline from "@mui/material/CssBaseline";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import App from "./App.tsx";
+import { App } from "./App.tsx";
 
 if (import.meta.env.MODE === "development") {
   const { worker } = await import("../mocks/index.ts");

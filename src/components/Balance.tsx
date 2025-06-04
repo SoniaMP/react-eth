@@ -10,19 +10,22 @@
  *  The use and distribution of this software is under the restrictions exposed in 'license.txt'
  */
 
-import { Container } from "@mui/material";
-import { Outlet } from "react-router-dom";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { Box } from "@mui/material";
 
-export const Home = () => {
+export const Balance = () => {
   return (
-    <>
-      <Header />
-      <Container maxWidth="xl" sx={{ my: 2 }}>
-        <Outlet />
-      </Container>
-      <Footer />
-    </>
+    <Box
+      mt={2}
+      p={2}
+      textAlign="center"
+      style={{
+        backgroundColor: "#FAF8FD",
+        borderRadius: "8px",
+      }}
+    >
+      <h2>Balance</h2>
+      <p>Your current balance is:</p>
+      <h3>€100.00</h3>
+    </Box>
   );
 };

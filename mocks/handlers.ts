@@ -7,7 +7,6 @@ const productsData = [...products] as IProduct[];
 
 export const handlers = [
   http.get("/api/products", async () => {
-    console.log({ productsData });
     await delay();
     return HttpResponse.json(productsData, { status: 200 });
   }),
@@ -31,7 +30,7 @@ export const handlers = [
       id: productsData.length + 1,
       ...newProduct,
     });
-    console.log({ productsData });
+
     await delay();
     return HttpResponse.json(newProduct, { status: 201 });
   }),

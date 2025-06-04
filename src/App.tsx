@@ -4,27 +4,33 @@ import { Home } from "./components/Home";
 import { ProductAdd } from "./components/ProductAdd";
 import { Product } from "./components/Product";
 import { Products } from "./components/Products";
+import { Balance } from "./components/Balance";
 
-const App = () => {
+export const App = () => {
   const router = createBrowserRouter([
     {
       element: <Home />,
       path: "/",
       children: [
         {
-          path: "products",
+          path: "",
           element: <Products />,
         },
         {
           path: "products/:id",
           element: <Product />,
         },
-        { path: "products/new", element: <ProductAdd /> },
+        {
+          path: "products/new",
+          element: <ProductAdd />,
+        },
+        {
+          path: "balance",
+          element: <Balance />,
+        },
       ],
     },
   ]);
 
   return <RouterProvider router={router} />;
 };
-
-export default App;
