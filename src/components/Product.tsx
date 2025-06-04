@@ -17,7 +17,7 @@ import { useParams } from "react-router-dom";
 import { getProducts } from "../services";
 import type { IProduct } from "../interfaces";
 
-const Product = () => {
+export const Product = () => {
   const { id = "" } = useParams();
   const { data: products, isLoading } = useQuery(["products"], getProducts);
 
@@ -48,5 +48,3 @@ const Product = () => {
     </Card>
   );
 };
-
-export default Product;

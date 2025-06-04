@@ -12,7 +12,6 @@
 
 import {
   Box,
-  Button,
   Paper,
   Stack,
   Table,
@@ -25,24 +24,12 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { addProduct, getProducts } from "../services";
+import { useQuery } from "react-query";
+import { getProducts } from "../services";
 import type { IProduct } from "../interfaces";
 
-const Products = () => {
-  const queryClient = useQueryClient();
+export const Products = () => {
   const { data: products, isLoading } = useQuery(["products"], getProducts);
-
-  const mutation = useMutation(addProduct, {
-    onSuccess: () => queryClient.invalidateQueries(["products"]),
-  });
-
-  const handleAdd = () => {
-    mutation.mutate({
-      name: "Nuevo producto",
-      description: "Descripción del producto",
-    });
-  };
 
   if (isLoading) {
     return (
@@ -52,12 +39,14 @@ const Products = () => {
     );
   }
 
+  console.log("Products:", products);
+
   return (
     <Stack spacing={2}>
       <Stack spacing={1} direction="row" justifyContent={"flex-end"}>
-        <Button variant="contained" onClick={handleAdd}>
+        <Link to="/products/new" style={{ textDecoration: "none" }}>
           Add product
-        </Button>
+        </Link>
       </Stack>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -91,5 +80,3 @@ const Products = () => {
     </Stack>
   );
 };
-
-export default Products;
