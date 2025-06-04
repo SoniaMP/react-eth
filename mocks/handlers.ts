@@ -1,11 +1,13 @@
 import { delay, http, HttpResponse } from "msw";
 
 import products from "./products.json";
+import type { IProduct } from "../src/interfaces";
 
-const productsData = products;
+const productsData = [...products] as IProduct[];
 
 export const handlers = [
   http.get("/api/products", async () => {
+    console.log({ productsData });
     await delay();
     return HttpResponse.json(productsData, { status: 200 });
   }),
@@ -25,7 +27,11 @@ export const handlers = [
 
   http.post("/api/products", async ({ request }) => {
     const newProduct: any = await request.json();
-    productsData.push({ id: productsData.length + 1, ...newProduct });
+    productsData.push({
+      id: productsData.length + 1,
+      ...newProduct,
+    });
+    console.log({ productsData });
     await delay();
     return HttpResponse.json(newProduct, { status: 201 });
   }),

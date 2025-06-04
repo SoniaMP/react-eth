@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Home } from "./components/Home";
-import Products from "./components/Products";
-import Product from "./components/Product";
+import { ProductAdd } from "./components/ProductAdd";
+import { Product } from "./components/Product";
+import { Products } from "./components/Products";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -18,6 +19,7 @@ const App = () => {
           path: "products/:id",
           element: <Product />,
         },
+        { path: "products/new", element: <ProductAdd /> },
       ],
     },
   ]);
