@@ -2,19 +2,19 @@
   {
     "id": 1,
     "name": "Orbea Oiz TR",
-    "description": "A really wonderful mountain bike to drive in all terrains.",
+    "price": 39,
     "image": "../src/assets/orbea_oiz.jpg"
   },
   {
     "id": 2,
     "name": "Crocs",
-    "description": "Comfortable and stylish footwear for all occasions.",
+    "price": 12,
     "image": "../src/assets/jellypods_01.jpg"
   },
   {
     "id": 3,
     "name": "Yamaha YZF-R1",
-    "description": "A high-performance motorcycle for speed enthusiasts.",
+    "price": 59,
     "image": "../src/assets/bike_10.jpg"
   }
 ]
