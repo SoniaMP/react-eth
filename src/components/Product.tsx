@@ -29,8 +29,10 @@ export const Product = () => {
     );
   }
 
-  const product = products.find((p: IProduct) => p.id === parseInt(id));
-  const { name, description, image } = product || {};
+  const product: IProduct = products.find(
+    (p: IProduct) => p.id === parseInt(id)
+  );
+  const { name, price, image } = product || {};
 
   return (
     <Card sx={{ p: 2, mt: 2 }}>
@@ -43,7 +45,7 @@ export const Product = () => {
       />
       <CardContent>
         <Typography>{name}</Typography>
-        <Typography variant="body2">{description}</Typography>
+        <Typography variant="body2">{price}</Typography>
       </CardContent>
     </Card>
   );

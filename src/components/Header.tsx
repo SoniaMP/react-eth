@@ -10,7 +10,8 @@
  *  The use and distribution of this software is under the restrictions exposed in 'license.txt'
  */
 
-import { AppBar, Box, Container, Stack } from "@mui/material";
+import AccountIcon from "@mui/icons-material/AccountBalanceOutlined";
+import { AppBar, Container, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import { AppBarButton } from "../styled";
 
@@ -25,12 +26,7 @@ export const Header = () => {
           className="navbar navbar-expand-lg navbar-light bg-light"
         >
           <Link to="/" style={{ textDecoration: "none" }}>
-            <Box
-              component="img"
-              src="/google-keep.svg"
-              alt="Logo"
-              sx={{ height: 40 }}
-            />
+            <AccountIcon sx={{ fontSize: 40, color: "white" }} />
           </Link>
           <AppBarButton component={Link} variant="text" to="/">
             Home

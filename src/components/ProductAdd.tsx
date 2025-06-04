@@ -36,9 +36,10 @@ export const ProductAdd = () => {
   const onSubmit = (formData: IProduct) => {
     const newProduct = {
       name: formData.name,
-      description: formData.description,
-      image: formData.image,
+      price: formData.price,
+      image: formData.image || "https://via.placeholder.com/150",
     };
+    console.log("Adding product:", newProduct);
     mutation.mutate(newProduct);
   };
 
@@ -55,14 +56,12 @@ export const ProductAdd = () => {
           </Typography>
         )}
         <TextField
-          placeholder="Product Description"
-          multiline
-          minRows={3}
-          {...register("description", { required: true })}
+          placeholder="Product price"
+          {...register("price", { required: true })}
         />
-        {errors.description && (
+        {errors.price && (
           <Typography variant="caption" color="error" fontWeight={700}>
-            Description is required
+            Price is required
           </Typography>
         )}
         <TextField placeholder="Image URL" {...register("image")} />

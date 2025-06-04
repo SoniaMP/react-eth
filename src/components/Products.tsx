@@ -53,13 +53,13 @@ export const Products = () => {
         </Button>
       </Stack>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 480 }}>
           <TableHead>
             <TableRow>
               <TableCell>Id</TableCell>
               <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Description</TableCell>
-              <TableCell align="right">Info</TableCell>
+              <TableCell align="right">Price</TableCell>
+              <TableCell align="right"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -72,7 +72,7 @@ export const Products = () => {
                   {row.id}
                 </TableCell>
                 <TableCell align="right">{row.name}</TableCell>
-                <TableCell align="right">{row.description}</TableCell>
+                <TableCell align="right">{row.price}</TableCell>
                 <TableCell align="right">
                   <Link to={`/products/${row.id}`}>Details</Link>
                 </TableCell>
