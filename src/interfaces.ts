@@ -4,3 +4,9 @@ export interface IProduct {
   price: number;
   image?: string;
 }
+
+export interface IEthAddress {
+  id?: number;
+  address: string;
+  amount: string;
+}
