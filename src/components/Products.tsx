@@ -16,9 +16,13 @@ import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getProducts } from "../services";
 import type { IProduct } from "../interfaces";
+import defaultProducts from "../data/products.json";
 
 export const Products = () => {
-  const { data: products, isLoading } = useQuery(["products"], getProducts);
+  const { data: products = defaultProducts, isLoading } = useQuery(
+    ["products"],
+    getProducts
+  );
 
   if (isLoading) {
     return (
