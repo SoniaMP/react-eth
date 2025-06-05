@@ -1,15 +1,3 @@
-/*
- * .
- *        . * .
- *      * RRRR  *   Copyright (c) 2012 - 2025
- *     .  RR  R  .  EUIPO - European Union Intellectual Property Office
- *     *  RRR    *
- *      . RR RR .   ALL RIGHTS RESERVED
- *       *. _ .*
- * .
- *  The use and distribution of this software is under the restrictions exposed in 'license.txt'
- */
-
 import { Container } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
@@ -19,7 +7,7 @@ export const Home = () => {
   return (
     <>
       <Header />
-      <Container maxWidth="xl" sx={{ my: 2 }}>
+      <Container maxWidth="lg" sx={{ my: 2 }}>
         <Outlet />
       </Container>
       <Footer />
