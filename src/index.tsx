@@ -20,6 +20,7 @@ createRoot(document.getElementById("root")!).render(
             queries: {
               refetchOnWindowFocus: false,
               refetchOnReconnect: false,
+              retry: false,
             },
           },
         })
