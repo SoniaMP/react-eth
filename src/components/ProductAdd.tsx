@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import type { IProduct } from "../interfaces";
 import { addProduct } from "../services";
-import { Button, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 
 export const ProductAdd = () => {
   const {
@@ -23,11 +23,10 @@ export const ProductAdd = () => {
 
   const onSubmit = (formData: IProduct) => {
     const newProduct = {
-      name: formData.name,
+      title: formData.title,
       price: formData.price,
-      image: formData.image || "https://via.placeholder.com/150",
+      description: formData.description,
     };
-    console.log("Adding product:", newProduct);
     mutation.mutate(newProduct);
   };
 
@@ -36,9 +35,9 @@ export const ProductAdd = () => {
       <Stack spacing={2}>
         <TextField
           placeholder="Product Name"
-          {...register("name", { required: true })}
+          {...register("title", { required: true })}
         />
-        {errors.name && (
+        {errors.title && (
           <Typography variant="caption" color="error" fontWeight={700}>
             Name is required
           </Typography>
@@ -52,8 +51,15 @@ export const ProductAdd = () => {
             Price is required
           </Typography>
         )}
-        <TextField placeholder="Image URL" {...register("image")} />
-        <Button type="submit">Add Product</Button>
+        <TextField
+          placeholder="Product description"
+          {...register("description")}
+        />
+        <Box display="flex" justifyContent="flex-end">
+          <Button type="submit" variant="contained">
+            Add Product
+          </Button>
+        </Box>
       </Stack>
     </form>
   );

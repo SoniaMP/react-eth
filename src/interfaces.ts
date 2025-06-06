@@ -1,8 +1,8 @@
 export interface IProduct {
   id?: number;
-  name: string;
+  title: string;
+  description: string;
   price: number;
-  image?: string;
 }
 
 export interface IEthAddress {

@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <>
       <Header />
-      <Container maxWidth="lg" sx={{ my: 2 }}>
+      <Container maxWidth="lg" sx={{ mt: 2, mb: 10 }}>
         <Outlet />
       </Container>
       <Footer />
