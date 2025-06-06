@@ -22,7 +22,7 @@ export const Balance = () => {
       to: data.address,
       value: ethers.parseEther(data.amount).toString(),
     };
-    console.log("Sending ETH:", params);
+
     try {
       const { ethereum } = window as any;
       const txtHash = await ethereum.request({
@@ -55,11 +55,7 @@ export const Balance = () => {
                 {...register("amount", { required: true })}
               />
               <Box display="flex" justifyContent="flex-end">
-                <Button
-                  variant="contained"
-                  type="submit"
-                  sx={{ textTransform: "none" }}
-                >
+                <Button variant="contained" type="submit">
                   Send
                 </Button>
               </Box>

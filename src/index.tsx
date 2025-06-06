@@ -1,32 +1,31 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import CssBaseline from "@mui/material/CssBaseline";
 import { QueryClient, QueryClientProvider } from "react-query";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
 
 import { App } from "./App.tsx";
-
-if (import.meta.env.MODE === "development") {
-  const { worker } = await import("../mocks/index.ts");
-  await worker.start();
-}
+import { theme } from "./theme.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <CssBaseline />
-    <QueryClientProvider
-      client={
-        new QueryClient({
-          defaultOptions: {
-            queries: {
-              refetchOnWindowFocus: false,
-              refetchOnReconnect: false,
-              retry: false,
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <QueryClientProvider
+        client={
+          new QueryClient({
+            defaultOptions: {
+              queries: {
+                refetchOnWindowFocus: false,
+                refetchOnReconnect: false,
+                retry: false,
+              },
             },
-          },
-        })
-      }
-    >
-      <App />
-    </QueryClientProvider>
+          })
+        }
+      >
+        <App />
+      </QueryClientProvider>
+    </ThemeProvider>
   </StrictMode>
 );

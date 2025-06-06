@@ -1,16 +1,21 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-import { getProducts } from "../services";
+import { getProduct } from "../services";
 import type { IProduct } from "../interfaces";
-import defaultProducts from "../data/products.json";
 
 export const Product = () => {
   const { id = "" } = useParams();
-  const { data: products = defaultProducts, isLoading } = useQuery(
-    ["products"],
-    getProducts
+  const { data: product, isLoading } = useQuery(["product", parseInt(id)], () =>
+    getProduct(parseInt(id))
   );
 
   if (isLoading) {
@@ -21,24 +26,24 @@ export const Product = () => {
     );
   }
 
-  const product: IProduct = products.find(
-    (p: IProduct) => p.id === parseInt(id)
-  );
-  const { name, price, image } = product || {};
+  const { title, description, price } = product as IProduct;
 
   return (
-    <Card sx={{ p: 2, mt: 2 }}>
-      <CardMedia
-        component="img"
-        height="240"
-        image={image}
-        alt={name}
-        sx={{ objectFit: "contain" }}
-      />
-      <CardContent>
-        <Typography>{name}</Typography>
-        <Typography variant="body2">{price}</Typography>
-      </CardContent>
-    </Card>
+    <Stack spacing={2}>
+      <Card sx={{ p: 2, mt: 2 }}>
+        <CardContent>
+          <Typography variant="h5">{title}</Typography>
+          <Typography>{description}</Typography>
+          <Typography variant="body2">
+            Price: <strong>{price}</strong>
+          </Typography>
+        </CardContent>
+      </Card>
+      <Box display="flex" justifyContent="flex-end">
+        <Button variant="contained" component={Link} to="/">
+          Back
+        </Button>
+      </Box>
+    </Stack>
   );
 };
